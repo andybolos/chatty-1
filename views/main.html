@@ -1,0 +1,21 @@
+<div class="wrapper" ng-controller="MessageCtrl">
+	<div class="header">
+		<h3 class="text-muted">chatty</h3>
+	</div>
+
+	<br>
+
+	<form name="userForm" ng-submit="addMessage(userForm.$valid)" novalidate>
+		<input type="text" placeholder="Username" ng-model="newUsername" required>
+		<input type="text" placeholder="Message" ng-model="newMessage" required>
+		<button type="submit" ng-disabled="userForm.$invalid">Submit</button>
+	</form>
+
+	<br>
+
+	<h4>Latest Chats:</h4>
+	<div class="jumbotron">
+		<p ng-repeat="message in messages"><strong>User:</strong> {{message.username}} | <strong>Message:</strong> {{message.message}} | <strong>Date:</strong> {{message.timestamp | date: 'short'}}</p>
+	</div>
+
+</div>
